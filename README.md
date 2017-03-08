@@ -77,6 +77,12 @@ float pi =  3.14_15F;
 Suffix: L/D/F
 Underscore between number
 ```
+3. String determinater false-positive for escape string
+```
+String a = "test\"\"test";
+
+Should check the string is it contain escape string before determinate it is end of String
+```
 
 ### Rules
 1. Underscore in number
