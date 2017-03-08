@@ -17,14 +17,14 @@ public class CrossReferenceMap {
       System.out.println("Usage: java CrossMapReference <filename>");
       System.exit(1);
     }
-		BinarySearchTree dictionary = new BinarySearchTree();
+    BinarySearchTree dictionary = new BinarySearchTree();
     BinarySearchTree tree = new BinarySearchTree();
     BufferedReader source;
     String line;
     int current_line = 0;
-		for (String word : reserved) {
-			dictionary.insert(word);
-		}
+    for (String word : reserved) {
+      dictionary.insert(word);
+    }
 
     try {
       source = new BufferedReader(new FileReader(args[0]));
@@ -35,18 +35,18 @@ public class CrossReferenceMap {
           String s1 = st1.nextToken();
           if (!dictionary.search(s1)) {
             if (!isString(s1) && !isInteger(s1)) {
-  						if (!tree.search(s1)) {
+              if (!tree.search(s1)) {
               	tree.insert(s1);
-  						}
+              }
             }
           }
         }
-				current_line++;
-	      line = source.readLine();
+        current_line++;
+        line = source.readLine();
       }
-			source.close();
+      source.close();
     } catch (IOException iox) {
-      System.out.println("Problem encountered in reading file!" );
+      System.out.println("Problem encountered in reading file!" );  
     }
     System.out.print("Cross Map Reference :- \n");
     tree.inorder();
