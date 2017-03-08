@@ -58,7 +58,7 @@ int x7 = 0x52_;
 9. Linkedlist to store line number for each identifier
 
 ### Problems
-1. Split Whole String into pieces because of delimiter
+#### Split Whole String into pieces because of delimiter
 ```
 String a = "test + test = testtest?";
 It turns out.
@@ -68,7 +68,7 @@ a
 test <- here is the problem
 testtest?"
 ```
-2. Number literal cannot be parsed by JAVA API
+#### Number literal cannot be parsed by JAVA API
 ```
 long maxLong = 0x7fff_ffff_ffff_ffffL;
 byte nybbles = 0b0010_0101;
@@ -77,7 +77,7 @@ float pi =  3.14_15F;
 Suffix: L/D/F
 Underscore between number
 ```
-3. String determinater false-positive for escape string
+#### String determinater false-positive for escape string
 ```
 String a = "test\"\"test";
 
