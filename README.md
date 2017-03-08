@@ -3,7 +3,7 @@
 Delimiter: ``` _.,;()[]{}+-*/!=<>\t```
 
 ### Reuirement
-1. Skip reserved word
+#### Skip reserved word
 ```
 abstract, boolean, break, byte, case, catch, char, class, const, continue, default, do,
 double, else, extends, false, final, finally, float, for, goto, if, implements, import,
@@ -11,14 +11,14 @@ instanceof, int, interface, long, native, new, null, operator, package, private,
 protected, public, rest, return, short, static, strictfp, super, switch, synchronized,
 this, throw, throws, transient, true, try, void, volatile, while 
 ```
-2. Skip String
+#### Skip String
 ```
 String a = "test";
 char a = 'test';
 String a = "test + test = testtest?";
 char a = '\u0108';
 ```
-3. Skip Number
+#### Skip Number
 ```
 Valid: 
 byte b = 100;
@@ -47,15 +47,16 @@ int x4 = 0_x52;
 int x5 = 0x_52;
 int x7 = 0x52_;
 ```
-4. Skip Operator
+#### Skip Operator
 ```
 ~ % instanceof & ^ | && || ? :
 ```
-5. Presented by alphabetical order
-6. Line number with ascending order
-7. Binary searching algo
-8. NOT ALLOWED to use data structure provided by JAVA API.
-9. Linkedlist to store line number for each identifier
+#### Others
+1. Presented by alphabetical order
+2. Line number with ascending order
+3. Binary searching algo
+4. NOT ALLOWED to use data structure provided by JAVA API.
+5. Linkedlist to store line number for each identifier
 
 ### Problems
 #### Split Whole String into pieces because of delimiter
