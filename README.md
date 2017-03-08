@@ -15,7 +15,8 @@ this, throw, throws, transient, true, try, void, volatile, while
 ```
 String a = "test";
 char a = 'test';
-
+String a = "test + test = testtest?";
+char a = '\u0108';
 ```
 3. Skip Number
 ```
@@ -59,7 +60,7 @@ int x7 = 0x52_;
 ### Problems
 1. Split Whole String into pieces because of delimiter
 ```
-String a = "test + test = testtest?"
+String a = "test + test = testtest?";
 It turns out.
 String
 a
