@@ -84,7 +84,13 @@ class LinkedList {
 			} else {
 				ListNode current = head;
 				while (current.next != null) {
-					
+					if (((Comparable)tail.data).compareto(item) > 0) {
+						ListNode newItem = new ListNode(item);
+						newItem.next = current.next
+						current = newitem;
+						return;
+					}
+					current = current.next;
 				}
 			}
 		}
