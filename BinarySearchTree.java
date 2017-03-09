@@ -1,5 +1,6 @@
 class BinaryNode {
 	Object data;
+	LinkedList pages;
 	BinaryNode left;
 	BinaryNode right;
 
