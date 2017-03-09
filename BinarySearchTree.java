@@ -1,6 +1,6 @@
 class BinaryNode {
 	Object data;
-	LinkedList pages;
+	LinkedList lines = new LinkedList();
 	BinaryNode left;
 	BinaryNode right;
 
@@ -11,11 +11,8 @@ class BinaryNode {
 	public Object getData() {
 		return data;
 	}
-	public String getPages() {
-		return pages;
-	}
-	public void insertPage(int currentPage) {
-		pages.insertInorder(currentPage);
+	public String getLines() {
+		return lines.toString();
 	}
 } // class BinaryNode
 
@@ -53,6 +50,11 @@ public class BinarySearchTree {
 		root = insertSubtree(root, x);
 	}
 
+	public void insertLine(Object x, int currentLine) {
+		BinaryNode target = search(root, x);
+		target.lines.insertInorder(currentLine);
+	}
+
 	private BinaryNode insertSubtree(BinaryNode t, Object x) {
 		if (t == null)
 			t = new BinaryNode(x);
@@ -64,7 +66,7 @@ public class BinarySearchTree {
 	}
 
 	private void visit(BinaryNode t) {
-		System.out.print(t.data + "\t\t\t\t: " + t.getPages());
+		System.out.println(t.data + "\t\t\t\t: " + t.getLines());
 	}
 
 	public void preorder() {
