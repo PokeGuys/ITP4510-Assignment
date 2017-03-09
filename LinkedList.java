@@ -23,6 +23,7 @@ class LinkedList {
 
 	private ListNode head;
 	private ListNode tail;
+	private Comparator comparator = new IntegerComparator();
 
 	public LinkedList() { head = tail = null; }
 
@@ -77,25 +78,25 @@ class LinkedList {
 		if (isEmpty()) {
 			head = tail = new ListNode(item);
 		} else {
-			if (((Comparable)head.data).compareto(item) > 0) {
+			if (comparator.isGreaterThan(head.getData(), item)) {
 				addToHead(item);
-			} else if (((Comparable)tail.data).compareto(item) < 0) {
+			} else if (comparator.isLessThan(tail.getData(), item)) {
 				addToTail(item);
 			} else {
 				ListNode current = head;
-				while (current.next != null) {
-					if (((Comparable)tail.data).compareto(item) > 0) {
+				while (current.getNext() != null) {
+					if (comparator.isGreaterThanOrEqualTo(current.getData(), item)) {
 						ListNode newItem = new ListNode(item);
-						newItem.next = current.next
-						current = newitem;
+						newItem.setNext(current.getNext());
+						current = newItem;
 						return;
 					}
-					current = current.next;
+					current = current.getNext();
 				}
 			}
 		}
 	}
-	
+
 	public String toString() {
 		String s = "[ ";
 		ListNode current = head;
