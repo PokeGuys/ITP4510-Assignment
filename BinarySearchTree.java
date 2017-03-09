@@ -11,6 +11,12 @@ class BinaryNode {
 	public Object getData() {
 		return data;
 	}
+	public String getPages() {
+		return pages;
+	}
+	public void insertPage(int currentPage) {
+		pages.insertInorder(currentPage);
+	}
 } // class BinaryNode
 
 public class BinarySearchTree {
@@ -58,7 +64,7 @@ public class BinarySearchTree {
 	}
 
 	private void visit(BinaryNode t) {
-		System.out.print(t.data + " ");
+		System.out.print(t.data + "\t\t\t\t: " + t.getPages());
 	}
 
 	public void preorder() {
