@@ -73,6 +73,23 @@ class LinkedList {
 		return item;
 	}
 
+	public void insertInorder(Object item) {
+		if (isEmpty()) {
+			head = tail = new ListNode(item);
+		} else {
+			if (((Comparable)head.data).compareto(item) > 0) {
+				addToHead(item);
+			} else if (((Comparable)tail.data).compareto(item) < 0) {
+				addToTail(item);
+			} else {
+				ListNode current = head;
+				while (current.next != null) {
+					
+				}
+			}
+		}
+	}
+	
 	public String toString() {
 		String s = "[ ";
 		ListNode current = head;
