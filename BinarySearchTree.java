@@ -66,7 +66,7 @@ public class BinarySearchTree {
 	}
 
 	private void visit(BinaryNode t) {
-		System.out.println(t.data + "\t\t\t\t: " + t.getLines());
+		System.out.printf("%-50s : %s\n", t.data, t.getLines());
 	}
 
 	public void preorder() {
