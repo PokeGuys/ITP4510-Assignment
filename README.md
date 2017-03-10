@@ -1,6 +1,6 @@
 # ITP4510 Assignment
 ## Cross-Reference Map
-Delimiter: ``` _.,;()[]{}+-*/!=<>\t```
+Delimiter: ```(space).,;()[]{}+-*/!=<>\t```
 
 ### Reuirement
 #### Skip reserved word
