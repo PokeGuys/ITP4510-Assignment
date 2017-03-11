@@ -22,7 +22,7 @@ public class CrossReferenceMap {
     BinarySearchTree tree = new BinarySearchTree();
     BufferedReader source;
     String line;
-    int current_line = 1;
+    int currentLine = 1;
     for (String word : reserved) {
       dictionary.insert(word);
     }
@@ -34,18 +34,14 @@ public class CrossReferenceMap {
         StringTokenizer st1 = new StringTokenizer(line," .,;()[]{}+-*/!=<>\t");
         while (st1.hasMoreTokens()) {
           String s1 = st1.nextToken();
-          if (!dictionary.search(s1)) {
-            if (!isString(s1)) {
-              if (!isInteger(s1) && !isOperator(s1)) {
-                if (!tree.search(s1)) {
-                	tree.insert(s1);
-                }
-                tree.insertLine(s1, current_line);
-              }
+          if (!dictionary.search(s1) && !isString(s1) && isIdentifier(s1)) {
+            if (!tree.search(s1)) {
+              tree.insert(s1);
             }
+            tree.insertLine(s1, currentLine);
           }
         }
-        current_line++;
+        currentLine++;
         line = source.readLine();
       }
       source.close();
@@ -56,30 +52,8 @@ public class CrossReferenceMap {
     tree.inorder();
   }
 
-  public static boolean isInteger(String word) {
-    try {
-      word = word.replace("_", "");
-      if (!Character.isDigit(word.charAt(0)))
-        return false;
-      char lastWord = word.charAt(word.length() - 1);
-      if (containLiteral(lastWord))
-        word = word.substring(0, word.length() - 1);
-      if (word.indexOf('e') >= 0) {
-        Double.valueOf(word);
-      } else if (word.indexOf("0b") == 0) {
-        Long.parseLong(word.substring(2), 2);
-      } else {
-        Long.decode(word);
-      }
-    } catch (NumberFormatException e) {
-      return false;
-    } catch (NullPointerException e) {
-      return false;
-    }
-    return true;
-  }
-
-  public static boolean isString(String word) {
+  public static boolean isString(String word)
+  {
     word = word.replace("\\\"", "");
     if (!startString) {
       char firstWord = word.charAt(0);
@@ -102,20 +76,10 @@ public class CrossReferenceMap {
     }
     return startString;
   }
-
-  public static boolean containLiteral(char word) {
-    switch (Character.toLowerCase(word)) {
-      case 'l':
-      case 'd':
-      case 'f':
-        return true;
-    }
-    return false;
-  }
-
-  protected static boolean isOperator(String op) {
-    return (op.equals("~") || op.equals("%") || op.equals("instanceof") ||
-      op.equals("&") || op.equals("^") || op.equals("|") || op.equals("&&") ||
-      op.equals("||") || op.equals("?") || op.equals(":"));
+  
+  public static boolean isIdentifier(String word)
+  {
+    char firstWord = word.charAt(0);
+    return (firstWord == '$' || firstWord == '_' || Character.isLetter(firstWord));
   }
 }
