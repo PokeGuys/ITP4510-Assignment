@@ -31,7 +31,7 @@ public class CrossReferenceMap {
 			source = new BufferedReader(new FileReader(args[0]));
 			line = source.readLine();
 
-			while ( line != null) {
+			while (line != null) {
 				StringTokenizer st1 = new StringTokenizer(line," .,;()[]{}+-*/!=<>\t");
 				while (st1.hasMoreTokens()) {
 					String s1 = st1.nextToken();
@@ -51,9 +51,10 @@ public class CrossReferenceMap {
 		}
 		System.out.print("Cross Map Reference :- \n");
 		tree.inorder();
-
-		System.out.println("Press any key to continue...");
-		System.in.read();
-		System.exit(1);
+		try {
+			System.out.println("Press any key to continue...");
+			System.in.read();
+			System.exit(1);
+		} catch(Exception e) {}
 	}
 }
