@@ -48,7 +48,7 @@ public class BinarySearchTree
 
   private BinaryNode search(BinaryNode t, Object x)
   {
-    if (isEmpty()) return null;
+    if (t == null) return null;
     if (((Comparable)x).compareTo(t.getData()) < 0) {
       return search(t.left, x);
     } else if (((Comparable)x).compareTo(t.getData()) > 0) {
