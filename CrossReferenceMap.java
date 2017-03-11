@@ -3,14 +3,14 @@ import java.util.*;
 
 public class CrossReferenceMap {
 	private static final String[] RESERVED = {
-    "abstract", "boolean", "break", "byte", "case", "catch", "char",
-    "class", "const", "continue", "default", "do", " double", "else",
-    "extends", "false", "final", "finally", "float", "for", "goto", "if",
-    "implements", "import", " instanceof", "int", "interface", "long", "native",
-    "new", "null", "operator", "package", "private", " protected", "public", "rest",
-    "return", "short", "static", "strictfp", "super", "switch", "synchronized", "this",
-    "throw", "throws", "transient", "true", "try", "void", "volatile", "while"
-  };
+		"abstract", "boolean", "break", "byte", "case", "catch", "char",
+		"class", "const", "continue", "default", "do", " double", "else",
+		"extends", "false", "final", "finally", "float", "for", "goto", "if",
+		"implements", "import", " instanceof", "int", "interface", "long", "native",
+		"new", "null", "operator", "package", "private", " protected", "public", "rest",
+		"return", "short", "static", "strictfp", "super", "switch", "synchronized", "this",
+		"throw", "throws", "transient", "true", "try", "void", "volatile", "while"
+	};
 
 	public static void main(String [] args) {
 		if (args.length != 1) {
