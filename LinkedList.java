@@ -116,11 +116,11 @@ class LinkedList {
   }
 
   public String toString() {
-    String s = "[";
+    String s = "[ ";
     ListNode current = head;
     while (current != null) {
       s += current.getData() + " ";
-      current = current.next();
+      current = current.getNext();
     }
     return s += "]";
   }
