@@ -1,48 +1,64 @@
-class ListNode {
+class ListNode
+{
   private Object data;
   private ListNode next;
 
-  public ListNode(Object d) {
+  public ListNode(Object d)
+  {
     data = d;
     next = null;
   }
-  public ListNode(Object d, ListNode next) {
+
+  public ListNode(Object d, ListNode next)
+  {
     data = d;
     this.next = next;
   }
-  public Object getData() {
+
+  public Object getData()
+  {
     return data;
   }
-  public void setData(Object d) {
+ 
+  public void setData(Object d)
+  {
     data = d;
   }
-  public ListNode getNext() {
+  public ListNode getNext()
+  {
     return next;
   }
-  public void setNext(ListNode next) {
+  public void setNext(ListNode next)
+  {
     this.next = next;
   }
 }
 
-class EmptyListException extends RuntimeException {
-  public EmptyListException() {
+class EmptyListException extends RuntimeException
+{
+  public EmptyListException()
+  {
     super("List is empty");
   }
 }
 
-class LinkedList {
+class LinkedList
+{
   private ListNode head;
   private ListNode tail;
 
-  public LinkedList() {
+  public LinkedList()
+  {
     head = tail = null;
   }
 
-  public boolean isEmpty() {
+  public boolean isEmpty()
+  {
     return head == null;
   }
 
-  public void addToHead(Object item) {
+  public void addToHead(Object item)
+  {
     if (isEmpty()) {
       head = tail = new ListNode(item);
     } else {
@@ -50,7 +66,8 @@ class LinkedList {
     }
   }
 
-  public void addToTail(Object item) {
+  public void addToTail(Object item)
+  {
     if (isEmpty()) {
       head = tail = new ListNode(item);
     } else {
@@ -59,7 +76,8 @@ class LinkedList {
     }
   }
 
-  public Object removeFromHead() throws EmptyListException {
+  public Object removeFromHead() throws EmptyListException
+  {
     Object item;
     if (isEmpty()) {
       throw new EmptyListException();
@@ -73,7 +91,8 @@ class LinkedList {
     return item;
   }
 
-  public Object removeFromTail() throws EmptyListException {
+  public Object removeFromTail() throws EmptyListException
+  {
     Object item;
     if (isEmpty()) {
       throw new EmptyListException();
@@ -92,30 +111,8 @@ class LinkedList {
     return item;
   }
 
-  public void insertInorder(Object item) {
-    if (isEmpty()) {
-      head = tail = new ListNode(item);
-    } else {
-      if ((int)head.getData() > (int)item) {
-        addToHead(item);
-      } else if ((int)tail.getData() < (int)item) {
-        addToTail(item);
-      } else {
-        ListNode current = head;
-        while (current.getNext() != null) {
-          if ((int)current.getData() >= (int)item) {
-            ListNode newItem = new ListNode(item);
-            newItem.setNext(current.getNext());
-            current = newItem;
-            return;
-          }
-          current = current.getNext();
-        }
-      }
-    }
-  }
-
-  public String toString() {
+  public String toString()
+  {
     String s = "[ ";
     ListNode current = head;
     while (current != null) {
