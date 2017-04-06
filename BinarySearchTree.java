@@ -1,36 +1,44 @@
-class BinaryNode {
+class BinaryNode
+{
   Object data;
   BinaryNode left;
   BinaryNode right;
   LinkedList lines;
 
-  public BinaryNode(Object d) {
+  public BinaryNode(Object d)
+  {
     data = d;
     left = right = null;
     lines = new LinkedList();
   }
 
-  public Object getData() {
+  public Object getData()
+  {
     return data;
   }
 
-  public String getLines() {
+  public String getLines()
+  {
     return lines.toString();
   }
 }
 
-public class BinarySearchTree {
+public class BinarySearchTree
+{
   private BinaryNode root;
 
-  public BinarySearchTree() {
+  public BinarySearchTree()
+  {
     root = null;
   }
 
-  public boolean isEmpty() {
+  public boolean isEmpty()
+  {
     return root == null;
   }
 
-  public boolean search(Object x) {
+  public boolean search(Object x)
+  {
     if (search(root, x) != null) {
       return true;
     } else {
@@ -38,7 +46,8 @@ public class BinarySearchTree {
     }
   }
 
-  private BinaryNode search(BinaryNode t, Object x) {
+  private BinaryNode search(BinaryNode t, Object x)
+  {
     if (t == null) return null;
     if (((Comparable)x).compareTo(t.getData()) < 0) {
       return search(t.left, x);
@@ -48,11 +57,13 @@ public class BinarySearchTree {
     return t;
   }
 
-  public void insert(Object x) {
+  public void insert(Object x)
+  {
     root = insertSubtree(root, x);
   }
 
-  private BinaryNode insertSubtree(BinaryNode t, Object x) {
+  private BinaryNode insertSubtree(BinaryNode t, Object x)
+  {
     if (t == null) {
       t = new BinaryNode(x);
     } else if (((Comparable)x).compareTo(t.getData()) < 0) {
@@ -63,16 +74,19 @@ public class BinarySearchTree {
     return t;
   }
 
-  public void insertLines(Object x, int current) {
+  public void insertLines(Object x, int line)
+  {
     BinaryNode target = search(root, x);
-    target.lines.insertInorder(current);
+    target.lines.addToTail(line);
   }
 
-  public void delete(Object x) {
+  public void delete(Object x)
+  {
     root = deleteSubtree(root, x);
   }
 
-  private BinaryNode deleteSubtree(BinaryNode t, Object x) {
+  private BinaryNode deleteSubtree(BinaryNode t, Object x)
+  {
     if (t == null) return null;
     if (((Comparable)x).compareTo(t.getData()) < 0) {
       t.left = deleteSubtree(t.left, x);
@@ -87,78 +101,93 @@ public class BinarySearchTree {
     return t;
   }
 
-  private void visit(BinaryNode t) {
+  private void visit(BinaryNode t)
+  {
     System.out.printf("%-30s : %s\n", t.getData(), t.getLines());
   }
 
-  public void preorder() {
+  public void preorder()
+  {
     preorderSubtree(root);
     System.out.println();
   }
 
-  private void preorderSubtree(BinaryNode t) {
+  private void preorderSubtree(BinaryNode t)
+  {
     if (t == null) return;
     visit(t);
     preorderSubtree(t.left);
     preorderSubtree(t.right);
   }
 
-  public void inorder() {
+  public void inorder()
+  {
     inorderSubtree(root);
     System.out.println();
   }
 
-  private void inorderSubtree(BinaryNode t) {
+  private void inorderSubtree(BinaryNode t)
+  {
     if (t == null) return;
     inorderSubtree(t.left);
     visit(t);
     inorderSubtree(t.right);
   }
 
-  public void postorder() {
+  public void postorder()
+  {
     postorderSubtree(root);
     System.out.println();
   }
 
-  private void postorderSubtree(BinaryNode t) {
+  private void postorderSubtree(BinaryNode t)
+  {
     if (t == null) return;
     postorderSubtree(t.left);
     postorderSubtree(t.right);
     visit(t);
   }
 
-  public Object getMin() {
+  public Object getMin()
+  {
     return findMin(root).getData();
   }
 
-  private BinaryNode findMin(BinaryNode t) {
+  private BinaryNode findMin(BinaryNode t)
+  {
     if (t == null) return t;
     return (t.left == null ? t : findMin(t.left));
   }
 
-  public Object getMax() {
+  public Object getMax()
+  {
     return findMin(root).getData();
   }
 
-  private BinaryNode findMax(BinaryNode t) {
+  private BinaryNode findMax(BinaryNode t)
+  {
     if (t == null) return t;
     return (t.right == null ? t : findMax(t.right));
   }
 
-  public int size() {
+  public int size()
+  {
     return sizeSubtree(root);
   }
 
-  private int sizeSubtree(BinaryNode t) {
+  private int sizeSubtree(BinaryNode t)
+  {
     if (t == null) return 0;
     return sizeSubtree(t.left) + sizeSubtree(t.right) + 1;
   }
 
-  public int height() {
+  public int height()
+  {
     return heightSubtree(root);
   }
 
-  private int heightSubtree(BinaryNode t) {
+  private int heightSubtree(BinaryNode t)
+  {
     if (t == null) return -1;
     int left = heightSubtree(t.left);
     int right = heightSubtree(t.right);
