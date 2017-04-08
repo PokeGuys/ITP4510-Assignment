@@ -22,6 +22,8 @@ public interface Helpers
    */
   private BinarySearchTree dictionary = new BinarySearchTree();
 
+  public boolean isQualified(String word);
+  public boolean isReserved(String word);
   public boolean isIdentifier(String item);
   public boolean isString(String item);
 }
