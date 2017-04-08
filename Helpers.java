@@ -5,7 +5,7 @@ public interface Helpers
    *
    * @var String array
    */
-  private final String[] RESERVED = {
+  protected final String[] RESERVED = {
     "abstract", "boolean", "break", "byte", "case", "catch", "char",
     "class", "const", "continue", "default", "do", " double", "else",
     "extends", "false", "final", "finally", "float", "for", "goto", "if",
@@ -20,7 +20,7 @@ public interface Helpers
    *
    * @var BinarySearchTree
    */
-  private BinarySearchTree dictionary = new BinarySearchTree();
+  protected BinarySearchTree dictionary = new BinarySearchTree();
 
   public boolean isQualified(String word);
   public boolean isReserved(String word);
