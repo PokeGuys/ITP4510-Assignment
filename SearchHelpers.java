@@ -8,6 +8,18 @@ public class SearchHelpers implements Helpers
   private boolean startString = false;
 
   /**
+   * Store reserved word into BinaryTree.
+   *
+   * @return void
+   */
+  public SearchHelpers()
+  {
+    for (String word : RESERVED) {
+      dictionary.insert(word);
+    }
+  }
+
+  /**
    * Indicates whether word is a String.
    *
    * @param String word
@@ -69,5 +81,15 @@ public class SearchHelpers implements Helpers
       }
     }
     return true;
+  }
+  
+  public boolean isReserved(String word)
+  {
+    reutnr dictionary.search(word);
+  }
+  
+  public boolean isQualified(String word)
+  {
+    return (!isReserved(word) && !isString(word) && isIdentifier(word));
   }
 }
