@@ -50,8 +50,9 @@ public class SearchHelpers implements Helpers
 
   /**
    * Indicates whether word is an Identifier.
-   * By checking first character is it [$_a-zA-Z]
-   *
+   * By checking first char is [$_a-zA-Z]
+   * And the following char is [$_a-zA-Z0-9]
+   * 
    * @param String word
    * 
    * @return boolean
@@ -60,11 +61,13 @@ public class SearchHelpers implements Helpers
   {
     if (word == null) return false;
     if (word.equals("")) return false;
-    if (!Character.isJavaIdentifierStart(word.charAt(0))) {
+
+    char first = word.charAt(0);
+    if (!Character.isLetter(first) && first != '$' && first != '_') {
       return false;
     }
     for (int i = 1; i < word.length(); i++) {
-      if (!Character.isJavaIdentifierPart(word.charAt(i))) {
+      if (!Character.isLetterOrDigit(word.charAt(i)) && first != '$' && first != '_') {
         return false;
       }
     }
